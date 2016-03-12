@@ -173,7 +173,7 @@ g2<-graph.data.frame(sample_b,directed = FALSE)
 
 
 bla<-1
-save.image()
+save.image(file='Thesis/trythisthing.RData')
 
 
 
