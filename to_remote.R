@@ -172,6 +172,11 @@ get_results<-function(g1,g2,the_weights,the_addition,s1,s2,s,the_start, the_end 
     print('new weight!!!!! ---- !!!!! --- !!!')
     print(i)
     print('new weight!!!!! ---- !!!!! --- !!!')
+    print('also - the start:')
+    print(the_start)
+    print('and the end:')
+    print(the_end)
+    print('hihihihihihihihihihihihihihihihihihihi')
     the_results[[i]]<-generate_result(g1,g2, weight_vec[[i]],s1,s2,s)
   }
   
@@ -186,30 +191,37 @@ mine_g<-function(g1,g2,the_weights,the_addition,s1,s2,s,file_way,the_start, the_
   return(results)
 }
 
-edgelist_source <- read.csv('Thesis/as19971108.csv',sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
-edgelist_target<- read.csv('Thesis/as19971109.csv',sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
-
-edgelist_source <- read.csv(file.choose(),sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
-hmmm <-read.csv(file.choose(),sep = " ",header=FALSE, row.names = NULL, col.names = c('from','to'),skip=3)
-
 
 sample_a<-edgelist_source[,1:2] #after data frame
 sample_b<-edgelist_target[,1:2] #before data frame
 g1<-graph.data.frame(sample_a,directed = FALSE)
 g2<-graph.data.frame(sample_b,directed = FALSE)
 
+edgelist_source <- read.csv('Thesis/as-caida1.csv',sep = ",",header=FALSE, row.names = NULL, col.names = c('from','to', 'relation'))
+edgelist_target <- read.csv('Thesis/as-caida2.csv',sep = ",",header=FALSE, row.names = NULL, col.names = c('from','to', 'relation'))
 
 
-w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
-a<-c(0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03)
+w<-c(0.1, 0.05, 0.01)
+a<-c(0.02, 0.005, 0.001)
 
-results_1<-mine_g(g1,g2,w,a,100,50,40,'Thesis/results26_1.rda',1,10)
+results_1<-mine_g(g1,g2,w,a,100,50,40,'Thesis/resultsB1_1.rda',1,10)
 
 
-results_2<-mine_g(g1,g2,w,a,100,50,40,'Thesis/results26_2.rda',11,20)
+results_2<-mine_g(g1,g2,w,a,100,50,40,'Thesis/resultsB2_2.rda',11,20)
 
   
-results_3<-mine_g(g1,g2,w,a,100,50,40,'Thesis/results26_3.rda',21,30)
+results_3<-mine_g(g1,g2,w,a,100,50,40,'Thesis/resultsB2_3.rda',21,30)
+
+
+edgelist_source <- read.csv('Thesis/as-caida1.csv',sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
+
+edgelist_source <- read.csv('Thesis/as19971108.csv',sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
+edgelist_target<- read.csv('Thesis/as19971109.csv',sep = ",",header=TRUE, row.names = NULL, col.names = c('from','to'))
+
+
+edgelist_source <- read.csv(file.choose(),sep = ",",header=FALSE, row.names = NULL, col.names = c('from','to'))
+hmmm <-read.csv(file.choose(),sep = ",",header=FALSE, row.names = NULL, col.names = c('from','to'),skip=3)
+
 
 
 
@@ -238,137 +250,163 @@ results3
 
 # w<-c(0.1, 0.05)
 # a<-c(0.02, 0.005)
+# B --- NOT DONE
 resultsW1 # Done!
 
 # w<-c(0.1, 0.05, 0.01)
 # a<-c(0.02, 0.005, 0.001)
 # results2_1, results2_2  and results2_3
+# B --- NOT DONE
 resultsW2 # Not Done - file done
 
 # w<-c(0.1, 0.05, 0.01)
 # a<-c(0.04, 0.01, 0.002)
 # results3_1 ...
+# B --- NOT DONE
 resultsW3 # not Done - file done
 
 #w<-c(0.1, 0.05, 0.01)
 #a<-c(0.08, 0.02, 0.004)
 # results4_1 ...
+# B --- NOT DONE
 resultsW4 # not done - file done
 
 
 #w<-c(0.1, 0.05, 0.01, 0.01)
 #a<-c(0.04, 0.01, 0.002, 0.002)
 # results5_1 ...
+# B --- NOT DONE
 resultsW5 # not done - file done
 
 
 #w<-c(0.1, 0.05, 0.01, 0.01, 0.01)
 #a<-c(0.04, 0.01, 0.002, 0.002, 0.002)
 # results6_1 ...
+# B --- NOT DONE
 resultsW6 # not done - file done
 
 #w<-c(0.1, 0.05, 0.02, 0.02, 0.02)
 #a<-c(0.04, 0.01, 0.004, 0.004, 0.004)
 # results7_1 ...
+# B --- NOT DONE
 resultsW7 # not done - file done
 
 #w<-c(0.1, 0.05, 0.05, 0.05, 0.05)
 #a<-c(0.04, 0.01, 0.01, 0.01, 0.01)
 # results8_1 ...
+# B --- NOT DONE
 resultsW8 # not done - file done
 
 
 #w<-c(0.1, 0.075, 0.075, 0.075, 0.075)
 #a<-c(0.04, 0.025, 0.025, 0.025, 0.025)
 # results9_1 ...
+# B --- NOT DONE
 resultsW9 # not done - file done
 
 
 #w<-c(0.1, 0.1, 0.1, 0.1, 0.1)
 #a<-c(0.04, 0.04, 0.04, 0.04, 0.04)
 # results10_1 ...
+# B --- NOT DONE
 resultsW10 # not done - file done
 
 
 #w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
 #a<-c(0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04)
 # results11_1 ...
+# B --- NOT DONE
 resultsW11 # not done - file done
 
 #w<-c(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
 #a<-c(0, 0, 0, 0, 0, 0, 0, 0, 0)
 # results12_1 ...
+# B --- NOT DONE
 resultsW12 # not done - file done
 
 
 # w<-c(0.1)
 # a<-c(0.03)
 # results13_1 ...
+# B --- NOT DONE
 resultsW13 # not done - file done
 
 # w<-c(0,0.1)
 # a<-c(0,0.03)
 # results14_1 ...
+# B --- NOT DONE
 resultsW14 # not done - _1 done. _2 and _3 not yet done
 
 
 # w<-c(0,0,0.1)
 # a<-c(0,0,0.03)
 # results15_1 ...
+# B --- NOT DONE
 resultsW15 # not done 
 
 # w<-c(0,0,0,0.1)
 # a<-c(0,0,0,0.03)
 # results16_1 ...
+# B --- NOT DONE
 resultsW16 # not done 
 
 # w<-c(0,0,0,0,0.1)
 # a<-c(0,0,0,0,0.03)
 # results17_1 ...
+# B --- NOT DONE
 resultsW17 # not done 
 
 # w<-c(0.1, 0.1)
 # a<-c(0.03, 0.03)
 # results18_1 ...
+# B --- NOT DONE
 resultsW18 # not done
 
 # w<-c(0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03)
 # results19_1 ...
+# B --- NOT DONE
 resultsW19 # not done - file done
 
 # w<-c(0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03)
 # results20_1 ...
+# B --- NOT DONE
 resultsW20 # not done - file done
 
 # w<-c(0.1, 0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03, 0.03)
 # results21_1 ...
+# B --- NOT DONE
 resultsW21 # not done - file done
 
 #w<-c(1, 1, 1, 1, 1, 1, 1, 1, 1)
 #a<-c(0, 0, 0, 0, 0, 0, 0, 0, 0)
 # results22_1 ...
+# B --- NOT DONE
 resultsW22 # not done - file done
 
 # w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03, 0.03, 0.03)
 # results23_1 ...
+# B --- NOT DONE
 resultsW23 # not done 
 
 # w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03)
 # results24_1 ...
+# B --- NOT DONE
 resultsW24 # not done 
 
 # w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03)
 # results25_1 ...
+# B --- NOT DONE
 resultsW25 # not done 
 
 
 # w<-c(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1)
 # a<-c(0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03)
 # results26_1 ...
+# B --- NOT DONE
 resultsW26 # not done 
